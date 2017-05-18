@@ -1,15 +1,40 @@
 <template>
   <f7-page>
-    <f7-navbar title="About" back-link="Back" sliding></f7-navbar>
+    <f7-navbar title="О системе" back-link="Back" sliding></f7-navbar>
     <f7-block inner>
-      <p>Here is About page!</p>
-      <p>You can go <f7-link back>back</f7-link>.</p>
-      <p>Mauris posuere sit amet metus id venenatis. Ut ante dolor, tempor nec commodo rutrum, varius at sem. Nullam ac nisi non neque ornare pretium. Nulla mauris mauris, consequat et elementum sit amet, egestas sed orci. In hac habitasse platea dictumst.</p>
-      <p>Fusce eros lectus, accumsan eget mi vel, iaculis tincidunt felis. Nulla tincidunt pharetra sagittis. Fusce in felis eros. Nulla sit amet aliquam lorem, et gravida ipsum. Mauris consectetur nisl non sollicitudin tristique. Praesent vitae metus ac quam rhoncus mattis vel et nisi. Aenean aliquet, felis quis dignissim iaculis, lectus quam tincidunt ligula, et venenatis turpis risus sed lorem. Morbi eu metus elit. Ut vel diam dolor.</p>
+        <p>S/N: {{obj.sn}}</p>
+        <p>Firmware version: {{obj.fw.major}}.{{obj.fw.minor}}.{{obj.fw.build}}</p>
+        <p>HW version: rev.{{obj.hw}}</p>
     </f7-block>
   </f7-page>
 </template>
 
 <script>
-export default {}
+
+
+export default {
+    data: function() {
+        return {
+            obj: {fw: {major: 999, minor: 999, build: 9999}, hw: 999, sn: 0},
+        }
+    },
+    created: function () {
+        console.log("beforeMount About");
+        this.fetchFW();
+    },
+    methods: {
+        fetchFW: function() {
+            var self = this;
+            this.axios.get('http://' + self.$root.uri + "/ver.json").then(
+            function(response) {
+                self.obj = response.data;//JSON.parse(response.data);
+                console.log(self.obj);
+                console.log(response);
+            }, 
+            function(err) {
+                console.log('error get ver.json');
+            })
+        }
+    }
+}
 </script>

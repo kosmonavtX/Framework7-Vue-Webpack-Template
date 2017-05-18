@@ -28,9 +28,19 @@
   },
   "homepage": "http://framework7.io/vue/",
   "dependencies": {
+    "axios": "^0.16.1",
+    "compression-webpack-plugin": "^0.4.0",
     "framework7": "^1.5.4",
     "framework7-vue": "^0.8.5",
-    "vue": "^2.2.4"
+    "fs": "0.0.1-security",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3",
+    "tls": "0.0.1",
+    "vue": "^2.2.4",
+    "vue-axios": "^2.0.1",
+    "vue-socket.io": "^2.1.1-a"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
