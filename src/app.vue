@@ -53,7 +53,7 @@
 
                     <!-- Page Content -->
                    <!-- <div v-if="connection">-->
-                    <div v-if="connection">
+                    <div v-if="true">
                         <!--                     <f7-grid>
                             <f7-col width="100">
                                 <f7-chip text="ПОДКЛЮЧЕНО!" bg="green" color="white"></f7-chip>
