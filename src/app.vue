@@ -51,11 +51,9 @@
                     </f7-navbar>
 
 
-                    <!--              <f7-chip v-if="connection" text="Connected" bg="green" color="white"></f7-chip>
-              <f7-chip v-else text="Нет связи с блоком управления" bg="red"></f7-chip>-->
                     <!-- Page Content -->
                    <!-- <div v-if="connection">-->
-                    <div v-if=true>
+                    <div v-if="connection">
                         <!--                     <f7-grid>
                             <f7-col width="100">
                                 <f7-chip text="ПОДКЛЮЧЕНО!" bg="green" color="white"></f7-chip>
